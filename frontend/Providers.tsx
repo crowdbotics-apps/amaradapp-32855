@@ -31,15 +31,15 @@ const serverUrl = REACT_APP_MORALIS_SERVER_URL;
 const environment = "native";
 // Initialize Moralis with AsyncStorage to support react-native storage
 Moralis.setAsyncStorage(AsyncStorage);
-// Replace the enable function to use the react-native WalletConnect
-// @ts-ignore
+ //Replace the enable function to use the react-native WalletConnect
+ @ts-ignore
 Moralis.enable = enableViaWalletConnect;
 console.log(AsyncStorage.getAllKeys(), "KEYS");
 
 const walletConnectOptions: WalletConnectProviderProps = {
   redirectUrl: Platform.OS === "web" ? window.location.origin : `${scheme}://`,
   storageOptions: {
-    // @ts-ignore
+     @ts-ignore
     asyncStorage: AsyncStorage,
   },
   qrcodeModalOptions: {
@@ -52,8 +52,8 @@ const walletConnectOptions: WalletConnectProviderProps = {
       "pillar",
     ],
   },
-  // Uncomment to show a QR-code to connect a wallet
-  // renderQrcodeModal: Qrcode,
+   Uncomment to show a QR-code to connect a wallet
+   renderQrcodeModal: Qrcode,
 };
 
 export const Providers = ({ children }: ProvidersProps) => {
